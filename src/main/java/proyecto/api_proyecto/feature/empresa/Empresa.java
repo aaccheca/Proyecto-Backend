@@ -1,8 +1,12 @@
 package proyecto.api_proyecto.feature.empresa;
+
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 import lombok.Data;
 
@@ -28,19 +32,19 @@ public class Empresa {
     @Column("telf_contacto")
     private String telfCo;
     @Column("parroquia_matriz")
-    private String parroquiaMa;
+    private long parroquiaMa;
     @Column("provincia_matriz")
-    private String provinciaMa;
+    private long provinciaMa;
     @Column("canton_matriz")
-    private String cantonMa;
+    private long cantonMa;
     @Column("direccion_matriz")
     private String direccionMa;
     @Column("parroquia_sucursal")
-    private String parroquiaSu;
+    private long parroquiaSu;
     @Column("provincia_sucursal")
-    private String provinciaSu;
+    private long provinciaSu;
     @Column("canton_sucursal")
-    private String cantonSu;
+    private long cantonSu;
     @Column("direccion_sucursal")
     private String direccionSu;
     @Column("numero_estudiantes_entidad")
@@ -54,5 +58,16 @@ public class Empresa {
     @Column("beneficiarios_indirectos")
     private String beneficiariosIndi;
 
+    @MappedCollection(idColumn = "id")
+    private Set<EmpresaEntidadReceptora> entidadReceptora = new HashSet<>();
+
+    @MappedCollection(idColumn = "id")
+    private Set<EmpresaParroquia> parroquia = new HashSet<>();
+    
+    @MappedCollection(idColumn = "id")
+    private Set<EmpresaProvincia> provincia = new HashSet<>();
+
+    @MappedCollection(idColumn = "id")
+    private Set<EmpresaCanton> canton = new HashSet<>();
 
 }
