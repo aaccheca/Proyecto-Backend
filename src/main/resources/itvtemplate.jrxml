@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporte_itv" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1e3557de-34d0-464b-b7c2-bf7f868af04c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (3)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+datos_generales.vigencia,
+datos_generales.financiamiento,
+datos_generales.nombrep,
+datos_generales.nombrei, 
+datos_generales.fecha,
+plan_de_trabajo.objetivoPro,
+plan_de_trabajo.justificacion,
+empresa.nombreE, 
+empresa.numRuc, 
+empresa.personaAc, 
+empresa.actividadEc, 
+empresa.numEE,
+empresa.correoE,
+empresa.telfCo,
+empresa.provinciaMa,
+empresa.cantonMa,
+empresa.provinciaSu,
+empresa.cantonSu,
+empresa.direccionSu
+FROM datos_generales
+INNER JOIN plan_de_trabajo
+ON datos_generales.id = plan_de_trabajo.id
+INNER JOIN empresa
+ON empresa.id = plan_de_trabajo.id
+WHERE empresa.id = 1]]>
+	</queryString>
+	<field name="vigencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="vigencia"/>
+		<property name="com.jaspersoft.studio.field.label" value="vigencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+	</field>
+	<field name="financiamiento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="financiamiento"/>
+		<property name="com.jaspersoft.studio.field.label" value="financiamiento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+	</field>
+	<field name="nombrep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombrep"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombrep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+	</field>
+	<field name="nombrei" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombrei"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombrei"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+	</field>
+	<field name="fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.label" value="fecha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="datos_generales"/>
+	</field>
+	<field name="objetivoPro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="objetivoPro"/>
+		<property name="com.jaspersoft.studio.field.label" value="objetivoPro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="plan_de_trabajo"/>
+	</field>
+	<!-- <field name="justificacion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="justificacion"/>
+		<property name="com.jaspersoft.studio.field.label" value="justificacion"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="plan_de_trabajo"/>
+	</field> -->
+	<field name="nombreE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nombreE"/>
+		<property name="com.jaspersoft.studio.field.label" value="nombreE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="numRuc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numRuc"/>
+		<property name="com.jaspersoft.studio.field.label" value="numRuc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="personaAc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="personaAc"/>
+		<property name="com.jaspersoft.studio.field.label" value="personaAc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="actividadEc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="actividadEc"/>
+		<property name="com.jaspersoft.studio.field.label" value="actividadEc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="numEE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="numEE"/>
+		<property name="com.jaspersoft.studio.field.label" value="numEE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="correoE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="correoE"/>
+		<property name="com.jaspersoft.studio.field.label" value="correoE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="telfCo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telfCo"/>
+		<property name="com.jaspersoft.studio.field.label" value="telfCo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="provinciaMa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="provinciaMa"/>
+		<property name="com.jaspersoft.studio.field.label" value="provinciaMa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="cantonMa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cantonMa"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantonMa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="provinciaSu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="provinciaSu"/>
+		<property name="com.jaspersoft.studio.field.label" value="provinciaSu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="cantonSu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cantonSu"/>
+		<property name="com.jaspersoft.studio.field.label" value="cantonSu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+  <field name="direccionMa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="direccionMa"/>
+		<property name="com.jaspersoft.studio.field.label" value="direccionMa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<field name="direccionSu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="direccionSu"/>
+		<property name="com.jaspersoft.studio.field.label" value="direccionSu"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="empresa"/>
+	</field>
+	<group name="vigencia">
+		<groupExpression><![CDATA[$F{vigencia}]]></groupExpression>
+	</group>
+	<group name="financiamiento">
+		<groupExpression><![CDATA[$F{financiamiento}]]></groupExpression>
+	</group>
+	<group name="nombrep">
+		<groupExpression><![CDATA[$F{nombrep}]]></groupExpression>
+	</group>
+	<group name="nombrei">
+		<groupExpression><![CDATA[$F{nombrei}]]></groupExpression>
+	</group>
+	<group name="fecha">
+		<groupExpression><![CDATA[$F{fecha}]]></groupExpression>
+	</group>
+	<group name="objetivoPro">
+		<groupExpression><![CDATA[$F{objetivoPro}]]></groupExpression>
+	</group>
+	<!-- <group name="justificacion">
+		<groupExpression><![CDATA[$F{justificacion}]]></groupExpression>
+	</group> -->
+	<group name="nombreE">
+		<groupExpression><![CDATA[$F{nombreE}]]></groupExpression>
+	</group>
+	<group name="numRuc">
+		<groupExpression><![CDATA[$F{numRuc}]]></groupExpression>
+	</group>
+	<group name="personaAc">
+		<groupExpression><![CDATA[$F{personaAc}]]></groupExpression>
+	</group>
+	<group name="actividadEc">
+		<groupExpression><![CDATA[$F{actividadEc}]]></groupExpression>
+	</group>
+	<group name="numEE">
+		<groupExpression><![CDATA[$F{numEE}]]></groupExpression>
+	</group>
+	<group name="correoE">
+		<groupExpression><![CDATA[$F{correoE}]]></groupExpression>
+	</group>
+	<group name="telfCo">
+		<groupExpression><![CDATA[$F{telfCo}]]></groupExpression>
+	</group>
+	<group name="provinciaMa">
+		<groupExpression><![CDATA[$F{provinciaMa}]]></groupExpression>
+	</group>
+	<group name="cantonMa">
+		<groupExpression><![CDATA[$F{cantonMa}]]></groupExpression>
+	</group>
+	<group name="provinciaSu">
+		<groupExpression><![CDATA[$F{provinciaSu}]]></groupExpression>
+	</group>
+	<group name="cantonSu">
+		<groupExpression><![CDATA[$F{cantonSu}]]></groupExpression>
+	</group>
+  <group name="direccionMa">
+		<groupExpression><![CDATA[$F{direccionMa}]]></groupExpression>
+	</group>
+	<group name="direccionSu">
+		<groupExpression><![CDATA[$F{direccionSu}]]></groupExpression>
+	</group>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement x="62" y="60" width="435" height="24" uuid="669709c0-7d89-4deb-8e2c-5db5b5430f92"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBSECRETARÍA DE FORMACIÓN TÉCNICA Y TECNOLÓGICA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="645" splitType="Stretch">
+			<rectangle>
+				<reportElement x="180" y="40" width="340" height="20" uuid="5738398c-3f41-4962-8ac3-3b64c4a4a625"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="100" width="480" height="20" backcolor="#7CA3DE" uuid="5a6b16c6-156c-4d51-8c7a-5329e1df36f7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="120" width="340" height="40" uuid="3c9091ea-2e04-4d6b-9ba3-e6d91c226ef7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="160" width="140" height="50" uuid="ff6f8ce8-34c5-4622-b07a-dc9dbc0b84e9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="210" width="140" height="70" uuid="5ad96776-26ce-4d77-ac08-1d077153f85b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="280" width="140" height="20" uuid="6dda853c-962a-42bd-99ea-80ba91d1fb03"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="300" width="140" height="40" uuid="79d49dde-e676-490b-a4e5-a447575eae7b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="340" width="140" height="50" uuid="136a39e8-e425-4221-83ea-c12be7cc2d33"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="430" width="100" height="20" uuid="60c954bc-27aa-47ef-ad93-5b0ac615e6ac"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="570" width="140" height="70" uuid="e10adca9-d866-4738-9fe6-45a5a4aef6eb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="40" width="140" height="20" uuid="8cf2da26-7741-4b08-9155-248f914c1502"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="60" width="140" height="20" uuid="f522ff37-87cb-4ddf-96a8-f0490e0e6d52"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="60" width="340" height="20" uuid="bac94878-eea5-408e-8f24-4b2fe01c727c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="80" width="140" height="20" uuid="ab45547c-51ca-4241-b348-9b4acbce1508"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="80" width="340" height="20" uuid="3f09a0a5-0682-48dc-90b1-45f3627222b3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="120" width="140" height="40" uuid="7703e197-8c5d-4a7d-9b71-ac5b6806742c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="160" width="80" height="50" uuid="3a97605d-2675-4387-860d-5332ed920cf7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="290" y="160" width="80" height="50" uuid="5f6e7669-fda4-4750-8ed2-efaa1921e9e4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="160" width="80" height="50" uuid="fe8195ad-9149-41d0-9dca-b301116090c2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="480" y="160" width="40" height="50" uuid="44461e2c-4491-4001-bf54-9c7019bb6c87"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="370" y="160" width="30" height="50" uuid="fb5d18f5-c293-40db-98c9-4a21740ab129"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="260" y="160" width="30" height="50" uuid="fdba6089-1b44-4394-99bb-b98157576d76"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="210" width="340" height="70" uuid="74f647a1-300c-4aa5-a47f-a9d0500214ff"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="280" width="340" height="20" uuid="d2d3e85f-61eb-433d-b2a2-4db303822bf4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="300" width="340" height="40" uuid="e8b57941-576e-4df1-bd37-167d33ce72eb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="340" width="110" height="50" uuid="bf4ac241-4aca-48ce-a485-37444e1483d0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="290" y="340" width="130" height="50" uuid="2cfdc66f-a3d4-4097-9cab-981b634f4612"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="420" y="340" width="100" height="50" uuid="f871ae70-5ab1-4a0a-8001-539424dcf64e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="390" width="140" height="40" uuid="35e0d5e5-6e50-4633-84c3-16e002478fd5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="390" width="110" height="40" uuid="e2008abe-b057-4403-bd87-f28d2f658322"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="290" y="390" width="130" height="40" uuid="8bdb554d-5cb7-4dea-be7a-537baf5f4a9a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="420" y="390" width="100" height="40" uuid="46ab540e-34ed-42d1-b1bd-5b70047962f1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="430" width="240" height="20" uuid="dcb5eb8d-d275-4cba-be9c-23f7c2665eca"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="450" width="100" height="20" uuid="fdab6fe6-945b-408a-93bd-87b80ca27198"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="450" width="240" height="20" uuid="b302544a-d6c6-4bc6-bcf0-b5d609602421"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="470" width="100" height="20" uuid="8007b188-797a-417e-a645-f5c89fe3cded"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="470" width="240" height="20" uuid="0b90ef8a-8cfa-48e2-904e-32fb5439e4ea"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="510" width="100" height="20" uuid="b93e2d16-28d5-4b64-999d-f6c61ede6b3f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="530" width="100" height="20" uuid="2f45b563-31b3-4401-96a8-4646c1d65351"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="490" width="240" height="20" uuid="26610cd1-8648-4d7d-bbc6-7cd73846d60c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="490" width="100" height="20" uuid="4b8e8fdc-8e17-4cb4-83d3-c8be4801333b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="510" width="240" height="20" uuid="50c438c0-ebe3-4cdc-b977-6bd55b57a70b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="530" width="240" height="20" uuid="760027c1-f018-40e5-9b9b-00bbc7d0d0e8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="430" width="140" height="60" uuid="2432d63a-0537-4e33-8369-25cc0ab95195"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="490" width="140" height="60" uuid="aeb78f1c-712a-4035-991e-ca1d60e6c357"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="550" width="480" height="20" backcolor="#7CA3DE" uuid="02586374-b769-4834-aeb1-c9368e4bd336"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="180" y="570" width="340" height="70" uuid="e46650af-4a00-4e4c-ab87-f883c7355b59"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="20" width="480" height="20" backcolor="#7CA3DE" uuid="6fbc5a7a-aca8-4127-9727-6e2b33cfdd21"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="40" y="-20" width="480" height="40" uuid="ea0cfd1d-22f4-487d-81a5-5f287be68b49"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="60" y="-10" width="436" height="30" uuid="0e38daf9-2b33-4579-8214-ac662aa42c1a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME TÉCNICO - ACADÉMICO DE VIABILIDAD
+PARA LA FIRMA DE CONVENIO DE VINCULACIÓN CON LA COLECTIVIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="20" width="436" height="20" uuid="51fe37b6-ab78-4ff5-a836-e35a1b66fb83"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos Generales:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="100" width="436" height="20" uuid="ceca7b7d-d775-4dd7-b856-2dd793dde85d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Datos de la Entidad Receptora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="550" width="436" height="20" uuid="a421f5f1-6c4b-42a0-9a03-dddb35ecea88"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Criterios Generales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="40" width="130" height="20" uuid="2c0d9c4c-4fd0-4c6c-a9b7-3a25be477319"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[No. de informe]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="60" width="130" height="20" uuid="dcfca76d-a071-4b87-a8d8-1f8d1cb63a6d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre del IST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="80" width="130" height="20" uuid="8812b0d8-828b-486a-9d88-746003719ea8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="120" width="130" height="40" uuid="0d88debf-fbd3-40d4-b9f1-66e48c021735"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre de la
+Entidad Receptora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="160" width="130" height="50" uuid="db491ecd-dece-4d05-b3a5-6505cb9f282f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Naturaleza de gestión
+de la Entidad
+Receptora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="210" width="130" height="70" uuid="af19050f-86b8-46ce-aef5-99a5abaf2e64"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre de la persona
+autorizada legalmente 
+para la sucripción del
+Convenio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="280" width="130" height="20" uuid="2792a927-dc43-4497-ab07-7877a1d2bd37"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Número de RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="300" width="130" height="40" uuid="782d7c4d-287a-4a03-818c-706ab807448a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Actividad económica
+que consta en el RUC:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="340" width="130" height="50" uuid="77e26a25-9eeb-41e6-8bfd-4c8dbfe6a9f9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[No. de estudiantes 
+que recibiría la 
+Entidad Receptora:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="390" width="130" height="40" uuid="806cfbc5-34be-4641-9cbf-c44ace21e897"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Correo electrónico de 
+la empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="440" width="130" height="40" uuid="90a105a5-d287-4efd-8e00-15a2cb30a5c8"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Dirección Matriz]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="500" width="130" height="40" uuid="18dcf6ee-49c6-4eeb-a446-21e610bd1b8d"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Dirección Sucursal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="50" y="580" width="130" height="50" uuid="6c6d4ed7-9b3f-4cfb-8042-96e95e736a08"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Objeto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="430" width="90" height="20" uuid="5e894561-84ce-49da-bc95-9136a19b35bc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Provincia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="490" width="90" height="20" uuid="337e9bc3-27f2-40ae-a1f1-0322ab1cf7c1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Provincia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="450" width="90" height="20" uuid="e9136517-d7bd-40c1-90ea-f6bfe0e50bef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Cantón:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="510" width="90" height="20" uuid="56c1188b-5489-4c0c-8ca1-f22a7f896dde"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Cantón:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="470" width="90" height="20" uuid="7ed9ec99-ac0e-476c-aa70-45111895c9f4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="530" width="90" height="20" uuid="e62b8292-d341-4de9-9e21-df3b2d00caf3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Dirección:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="345" width="120" height="40" uuid="d922d378-153c-42b3-ab7d-a283a8ceacc5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Plazo de vigencia
+del convenio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="390" width="120" height="40" uuid="c9a112da-382c-4e10-bdd9-6760d7c4a2cb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Número de contacto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="175" width="70" height="20" uuid="1c29c123-2b70-4c37-9fae-949bde44396c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Pública:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="175" width="70" height="20" uuid="bdecbab2-b022-4772-a0d0-cb0616a32e73"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Privada:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="175" width="70" height="20" uuid="a322fbe3-e5a9-4359-94b0-bbc09325b5d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Mixta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="190" y="280" width="330" height="20" uuid="718b300e-1f15-423f-96a3-2f02051c9928"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numRuc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="345" width="85" height="40" uuid="d79f4af1-5920-4b31-a230-7e308df1b3fc"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vigencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="60" width="330" height="18" uuid="0bda738d-e7f4-42c1-bd39-97017f42123d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrei}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="80" width="330" height="20" uuid="8db9ce08-df80-4099-a042-1c3d8e03a448"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="430" width="230" height="20" uuid="26c0a477-ee5d-42b5-9c96-b1e6db0da750"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provinciaMa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="450" width="230" height="20" uuid="1ad65900-d31c-4b36-8cad-e9338f9fb544"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantonMa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="570" width="335" height="70" uuid="6a29d1cd-a05e-4c0f-921c-8448c26b9ed1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{objetivoPro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="530" width="230" height="20" uuid="fc96ea8b-f05e-43c8-ad4a-18e3aa212419"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccionMa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="490" width="230" height="20" uuid="a78ba362-868e-4f20-a6f7-81c7380b7c48"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{provinciaSu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="510" width="230" height="20" uuid="c61b121e-a6a8-4723-9071-8b36a3c89c9f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantonSu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="390" width="100" height="40" uuid="4d4d0c41-70c5-47fc-b91b-ce27b5230bc2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{correoE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="395" width="95" height="30" uuid="17fed909-57cb-4e05-893e-4c76581f0243"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telfCo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="345" width="100" height="40" uuid="33b19dd6-271e-4f70-981d-fb899b4437a3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numEE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="305" width="333" height="30" uuid="d59b1737-a493-4ebb-82b0-2192b5174170"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{actividadEc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="220" width="320" height="50" uuid="23e3a48f-6517-4440-b907-d51b55db2400"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{personaAc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="125" width="330" height="30" uuid="502a200d-a8b4-4c7d-a5db-0f5532744cbd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="470" width="230" height="20" uuid="0acdda82-a1fd-4548-94b8-f5dcbef41e2b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{direccionSu}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
