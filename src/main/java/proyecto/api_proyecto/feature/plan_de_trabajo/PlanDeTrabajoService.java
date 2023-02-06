@@ -25,7 +25,8 @@ public class PlanDeTrabajoService {
 
     public void deleteById(long id){
         planDeTrabajoRepository.deleteById(id);
-    }  
+    } 
+    
 
 
 }
