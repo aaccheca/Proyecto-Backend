@@ -1,5 +1,7 @@
 package proyecto.api_proyecto.feature.datos_generales;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,9 @@ public class DatosGeneralesService {
     public void deleteById(long id){
         datosGeneralesRepository.deleteById(id);
     }  
+
+    public List<DatosGenerales> findAll(){
+        return datosGeneralesRepository.findAll();
+    }
 
 }

@@ -1,5 +1,7 @@
 package proyecto.api_proyecto.feature.datos_generales;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,6 +29,11 @@ public class DatosGeneralesController {
     @PostMapping("/save")
     public DatosGenerales save(@RequestBody DatosGenerales datosGenerales){
         return datosGeneralesService.save(datosGenerales);
+    }
+
+    @GetMapping("/findAll")
+    public List<DatosGenerales> findAll(){
+        return datosGeneralesService.findAll();
     }
 
     //Read

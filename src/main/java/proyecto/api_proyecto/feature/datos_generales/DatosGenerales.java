@@ -15,7 +15,7 @@ public class DatosGenerales {
     @Column("id")
     private long dgId;
     @Column("codigo_proyecto")
-    private long codigo;
+    private String codigo;
     @Column("nombre_proyecto")
     private String nombrep;
     @Column("nombre_instituto")
