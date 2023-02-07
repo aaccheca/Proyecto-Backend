@@ -18,10 +18,14 @@ repositories {
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://repo.spring.io/snapshot' }
+	maven { url "https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/" }
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	// https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports
+	implementation 'net.sf.jasperreports:jasperreports:6.20.0'
+	implementation 'com.lowagie:itext:2.1.7.js4'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

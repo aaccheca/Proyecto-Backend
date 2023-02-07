@@ -1,9 +1,12 @@
 package proyecto.api_proyecto.feature.datos_generales;
 
+
 import java.util.List;
+import java.io.FileNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import net.sf.jasperreports.engine.JRException;
 
 @RestController
 @RequestMapping("/api/datos-generales")
@@ -54,6 +59,10 @@ public class DatosGeneralesController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable long id){
         datosGeneralesService.deleteById(id);
+    }
+    @GetMapping ("pdf/{id}")
+    public ResponseEntity<byte[]> generarpdf(@PathVariable long id) throws FileNotFoundException, JRException{
+        return datosGeneralesService.generarpdf(id);
     }
     
 }
