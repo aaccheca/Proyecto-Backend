@@ -19,32 +19,32 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import proyecto.api_proyecto.feature.datos_generales.DatosGenerales;
-import proyecto.api_proyecto.feature.datos_generales.DatosGeneralesRepository;
+import proyecto.api_proyecto.feature.datos_generales.DatosGeneralesService;
 import proyecto.api_proyecto.feature.empresa.Empresa;
-import proyecto.api_proyecto.feature.empresa.EmpresaRepository;
+import proyecto.api_proyecto.feature.empresa.EmpresaService;
 import proyecto.api_proyecto.feature.integrantes.Integrantes;
-import proyecto.api_proyecto.feature.integrantes.IntegrantesRepository;
+import proyecto.api_proyecto.feature.integrantes.IntegrantesService;
 import proyecto.api_proyecto.feature.plan_de_trabajo.PlanDeTrabajo;
-import proyecto.api_proyecto.feature.plan_de_trabajo.PlanDeTrabajoRepository;
+import proyecto.api_proyecto.feature.plan_de_trabajo.PlanDeTrabajoService;
 
 @Service
 public class ItvService {
-  
-	@Autowired(required=false)
-  private EmpresaRepository empresaRepository;
-  @Autowired(required=false)
-  private DatosGeneralesRepository datosGeneralesRepository;
-  @Autowired(required=false)
-  private PlanDeTrabajoRepository planDeTrabajoRepository;
-  @Autowired(required=false)
-  private IntegrantesRepository integrantesRepository;
+
+  @Autowired
+  private EmpresaService empresaService;
+  @Autowired  
+  private DatosGeneralesService datosGeneralesService;
+  @Autowired  
+  private PlanDeTrabajoService planDeTrabajoService;
+  @Autowired  
+  private IntegrantesService integrantesService;
 
   public byte[] exportReport(Long proyectId) throws FileNotFoundException, JRException {
     // Gather data from the database based on id
-    Empresa empresa= empresaRepository.findById(proyectId).get();
-    PlanDeTrabajo plan= planDeTrabajoRepository.findById(proyectId).get();
-    DatosGenerales datos = datosGeneralesRepository.findById(proyectId).get();
-    Integrantes integrantes = integrantesRepository.findById(proyectId).get();
+    Empresa empresa = empresaService.findById(proyectId);
+    PlanDeTrabajo plan = planDeTrabajoService.findById(proyectId);
+    DatosGenerales datos = datosGeneralesService.findById(proyectId);
+    Integrantes integrantes = integrantesService.findById(proyectId);
 
     // Construct a custom Model with all the fields for the ITV PDF
     ItvModel itvService = new ItvModel();
@@ -93,7 +93,7 @@ public class ItvService {
 
     // Generate dataSource that will hydrate the template
     JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(actors);
-    
+
     // Generate parameters needed to fill the report
     Map<String, Object> parameters = new HashMap<>();
 
