@@ -256,11 +256,11 @@ WHERE integrantes.id = 1]]>
 	<pageHeader>
 		<band height="73">
 			<image>
-				<reportElement x="40" y="11" width="70" height="50" uuid="3f8f034c-278d-4b9b-902d-e42ff5383d1a"/>
+				<reportElement x="40" y="10" width="141" height="51" uuid="3f8f034c-278d-4b9b-902d-e42ff5383d1a"/>
 				<imageExpression>"logo_secre.png"</imageExpression>
 			</image>
 			<image>
-				<reportElement x="475" y="20" width="50" height="50" uuid="a6f92b39-7166-44e7-a370-a38bb9e0e2bb"/>
+				<reportElement x="432" y="10" width="73" height="50" uuid="a6f92b39-7166-44e7-a370-a38bb9e0e2bb"/>
 				<imageExpression>"LogoYavirac.png"</imageExpression>
 			</image>
 		</band>
