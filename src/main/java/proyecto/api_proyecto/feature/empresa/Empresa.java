@@ -28,19 +28,19 @@ public class Empresa {
     @Column("telf_contacto")
     private String telfCo;
     @Column("parroquia_matriz")
-    private long parroquiaMa;
+    private String parroquiaMa;
     @Column("provincia_matriz")
-    private long provinciaMa;
+    private String provinciaMa;
     @Column("canton_matriz")
-    private long cantonMa;
+    private String cantonMa;
     @Column("direccion_matriz")
     private String direccionMa;
     @Column("parroquia_sucursal")
-    private long parroquiaSu;
+    private String parroquiaSu;
     @Column("provincia_sucursal")
-    private long provinciaSu;
+    private String provinciaSu;
     @Column("canton_sucursal")
-    private long cantonSu;
+    private String cantonSu;
     @Column("direccion_sucursal")
     private String direccionSu;
     @Column("numero_estudiantes_entidad")
@@ -53,6 +53,4 @@ public class Empresa {
     private String beneficiariosDi;
     @Column("beneficiarios_indirectos")
     private String beneficiariosIndi;
-
-
 }
