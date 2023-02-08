@@ -18,10 +18,10 @@ public class ItvController {
     @Autowired
     ItvService service;
 
-    @GetMapping("/reporte/{format}")
-    public void generateReport(@PathVariable String format, HttpServletResponse response) throws Exception {
+    @GetMapping("/reporte/{id}")
+    public void generateReport(@PathVariable Long id, HttpServletResponse response) throws Exception {
 
-      byte[] data = service.exportReport(format);
+      byte[] data = service.exportReport(id);
 
       streamReport(response, data, "my_report.pdf");
   }

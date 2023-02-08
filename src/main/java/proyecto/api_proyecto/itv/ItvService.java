@@ -39,13 +39,12 @@ public class ItvService {
   @Autowired(required=false)
   private IntegrantesRepository integrantesRepository;
 
-  public byte[] exportReport(String proyectId) throws FileNotFoundException, JRException {
+  public byte[] exportReport(Long proyectId) throws FileNotFoundException, JRException {
     // Gather data from the database based on id
-    Long id = Long.valueOf(proyectId);
-    Empresa empresa= empresaRepository.findById(id).get();
-    PlanDeTrabajo plan= planDeTrabajoRepository.findById(id).get();
-    DatosGenerales datos = datosGeneralesRepository.findById(id).get();
-    Integrantes integrantes = integrantesRepository.findById(id).get();
+    Empresa empresa= empresaRepository.findById(proyectId).get();
+    PlanDeTrabajo plan= planDeTrabajoRepository.findById(proyectId).get();
+    DatosGenerales datos = datosGeneralesRepository.findById(proyectId).get();
+    Integrantes integrantes = integrantesRepository.findById(proyectId).get();
 
     // Construct a custom Model with all the fields for the ITV PDF
     ItvModel itvService = new ItvModel();
