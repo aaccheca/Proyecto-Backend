@@ -2,7 +2,7 @@ package proyecto.api_proyecto.feature.datos_generales;
 
 
 import java.util.List;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,9 +60,12 @@ public class DatosGeneralesController {
     public void delete(@PathVariable long id){
         datosGeneralesService.deleteById(id);
     }
-    @GetMapping ("pdf/{id}")
-    public ResponseEntity<byte[]> generarpdf(@PathVariable long id) throws FileNotFoundException, JRException{
+    @GetMapping("pdf/{id}")
+    public
+    ResponseEntity<byte[]>
+       generarPdf(@PathVariable long id) throws JRException, IOException{
         return datosGeneralesService.generarpdf(id);
     }
+
     
 }
