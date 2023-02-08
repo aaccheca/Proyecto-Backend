@@ -22,6 +22,8 @@ import proyecto.api_proyecto.feature.datos_generales.DatosGenerales;
 import proyecto.api_proyecto.feature.datos_generales.DatosGeneralesRepository;
 import proyecto.api_proyecto.feature.empresa.Empresa;
 import proyecto.api_proyecto.feature.empresa.EmpresaRepository;
+import proyecto.api_proyecto.feature.integrantes.Integrantes;
+import proyecto.api_proyecto.feature.integrantes.IntegrantesRepository;
 import proyecto.api_proyecto.feature.plan_de_trabajo.PlanDeTrabajo;
 import proyecto.api_proyecto.feature.plan_de_trabajo.PlanDeTrabajoRepository;
 
@@ -34,16 +36,23 @@ public class ItvService {
   private DatosGeneralesRepository datosGeneralesRepository;
   @Autowired(required=false)
   private PlanDeTrabajoRepository planDeTrabajoRepository;
+  @Autowired(required=false)
+  private IntegrantesRepository integrantesRepository;
 
   public byte[] exportReport(String proyectId) throws FileNotFoundException, JRException {
     // Gather data from the database based on id
-    Empresa empresa= empresaRepository.findById(Long.valueOf(proyectId)).get();
-    PlanDeTrabajo plan= planDeTrabajoRepository.findById(Long.valueOf(proyectId)).get();
-    DatosGenerales datos = datosGeneralesRepository.findById(Long.valueOf(proyectId)).get();
+    Long id = Long.valueOf(proyectId);
+    Empresa empresa= empresaRepository.findById(id).get();
+    PlanDeTrabajo plan= planDeTrabajoRepository.findById(id).get();
+    DatosGenerales datos = datosGeneralesRepository.findById(id).get();
+    Integrantes integrantes = integrantesRepository.findById(id).get();
 
     // Construct a custom Model with all the fields for the ITV PDF
     ItvModel itvService = new ItvModel();
     itvService.setObjetivoPro(plan.getObjetivoPro());
+    itvService.setJustificacion(plan.getJustificacion());
+    itvService.setObjetivoOb(plan.getObjetivoOb());
+    itvService.setObjetivosEs(plan.getObjetivosEs());
 
     itvService.setNumRuc(empresa.getNumRuc());
     itvService.setNombreE(empresa.getNombreE());
@@ -59,12 +68,20 @@ public class ItvService {
     itvService.setDireccionSu(empresa.getDireccionSu());
     itvService.setNumEE(empresa.getNumEE());
 
+    itvService.setCodigo(datos.getCodigo());
+    itvService.setCarreraId(datos.getCarreraId());
     itvService.setNombrep(datos.getNombrep());
     itvService.setNombrei(datos.getNombrei());
     itvService.setFecha(datos.getFecha());
     itvService.setFinanciamiento(datos.getFinanciamiento());
     itvService.setVigencia(datos.getVigencia());
 
+    itvService.setNombreProyecto(integrantes.getNombreProyecto());
+    itvService.setCargoProyecto(integrantes.getCargoProyecto());
+    itvService.setFuncionesEstudiantes(integrantes.getFuncionesEstudiantes());
+    itvService.setFuncionesInstitucion(integrantes.getFuncionesInstitucion());
+    itvService.setNombreInstitucion(integrantes.getNombreInstitucion());
+    itvService.setCargoInstitucion(integrantes.getCargoInstitucion());
     // Construct a List based on the ITV Service
     List<ItvModel> actors = new ArrayList<>();
     actors.add(0, itvService);
